@@ -1,0 +1,83 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="Japan language, japan, nihongo, nippongo, японский язык, японский, язык, курсы японского языка" />
+    <meta name="description" content="Курсы Японского языка" />
+    <link href="~/css/ResetStyle.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/Course Page Style/CoursePageStyle.css" rel="stylesheet" type="text/css" />
+    <title> Курсы Японского языка </title>
+</head>
+<body>
+    <div class="backButton">
+        <a href="#" class="BB" tabindex="0">UP</a>
+    </div>
+    <div class="wrap">
+
+        <div class="row row-1">
+            <div class="col col-1">
+                <a href="../Home/HomeViewWithUser?userId=@ViewBag.User.Id">Главная</a>
+            </div>
+            <div class="col col-2">
+                <a href="../News/NewsView?userId=@ViewBag.User.Id">Новости</a>
+            </div>
+            <div class="col col-3"><a href="../Course/CoursesView?userId=@ViewBag.User.Id">Курсы</a></div>
+            <div class="col col-4">
+                    <a href="../Feedback/FeedbackView?userId=@ViewBag.User.Id">Обратная связь</a>
+            </div>
+            <div class="col col-5"><a href="../Article/ArticlesView?userId=@ViewBag.User.Id">Статьи</a>
+            </div>
+            <div class="col col-6"><a href="../Home/HomeViewWithUser?userId=@ViewBag.User.Id">Добро пожаловать: @ViewBag.User.Login</a></div>
+        </div>
+
+        <div class="row row-2">
+            <div class="col col-1"><img src="~/images/Course Page Images/main_tz_vector-03.jpg" alt=""></div>
+            <div class="col col-2">
+                <p class="title">Японский - легко!</p>
+                <p class="description">учите с удовольствием</p>
+            </div>
+        </div>
+
+        <div class="row row-3">
+            <p class="title">Выберите курс</p>
+            <p class="description">тут отображаются купленные курсы</p>
+        </div>
+
+
+        <div class="row row-4">
+            @for (var i = 0; i < ViewBag.Courses.Count; i++)
+            {
+                    <a class="block" href="../Course/OpenCourseView?userId=@ViewBag.User.Id&courseId=@ViewBag.Courses[i].Id">
+                        <div class="col col-1"><img src="~/images/Course Page Images/@string.Concat((i+1).ToString(), ".jpg")" alt="error"></div>
+                        <div class="col col-2">
+                            <b>@ViewBag.Courses[i].Title</b>
+                            <p class="text">@string.Concat(ViewBag.Courses[i].Description.Split('•')[0])
+                            <p class="text">@string.Concat("• ", ViewBag.Courses[i].Description.Split('•')[1])
+                            <p class="text">@string.Concat("• ", ViewBag.Courses[i].Description.Split('•')[2])
+                            <p class="text">@string.Concat("• ", ViewBag.Courses[i].Description.Split('•')[3])
+                        </div>
+                    </a>
+            }
+        </div>
+
+        <div class="row row-5"></div>
+        <div class="row row-6">
+            <div class="col col-1">
+                <img src="~/images/Course Page Images/Home Page Image.jpg" alt="error">
+            </div>
+            <div class="col col-2">
+                    <a href="../Feedback/FeedbackView?userId=@ViewBag.User.Id">Обратная связь</a>
+                <p>E-mail: vinnik_21@bk.ru</p>
+                <p class="p-1">Все права защищены (с)</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -7,42 +7,67 @@ using Microsoft.AspNetCore.Mvc;
 using TestWeb.Models;
 using TestWeb.Repository;
 using TestWeb.Services;
+using TestWeb.Interfaces;
+using TestWeb.Exeptions;
 
 namespace TestWeb.Controllers
 {
     public class RegistrationController : Controller
     {
-        private NewsRepository _newsRepository;
-        DataBaseService _dataBaseService;
-        NewsModel newsModel = new NewsModel();
-        public RegistrationController(NewsRepository newsRepository, DataBaseService dataBaseService)
+        #region Constructors
+
+        public RegistrationController(INewsRepository newsRepository, DataBaseService dataBaseService, IRegistrationService registrationService)
         {
             _newsRepository = newsRepository;
+            _registrationService = registrationService;
             _dataBaseService = dataBaseService;
-            //_dataBaseService.AddNews("Start");
         }
 
-        public IActionResult Index()
-        {
-            newsModel.Text = _newsRepository.title;
-            newsModel.Title = _dataBaseService.GetNews();
-            return View(newsModel);
-        }
+        #endregion
 
-        public IActionResult AuthorizationView()
-        {
-            return View();
-        }
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+
+
+        #region Main Logic
+
 
         [HttpPost]
-        public string Registration()
+        public ActionResult Registration(string login, string password)
         {
-
-            return "kek";
+            UserModel userModel = new UserModel();
+            try
+            {
+                userModel = _registrationService.Registration(login, password);
+            }
+            catch (BadEmailException ex)
+            {
+                return RedirectToAction("Index", "Home", new { ex.Message });
+            }
+            catch (BadLoginException ex)
+            {
+                return RedirectToAction("Index", "Home", new { ex.Message });
+            }
+            catch (BadPasswordException ex)
+            {
+                return RedirectToAction("Index", "Home", new { ex.Message });
+            }
+            catch (UserAlreadyExistException ex)
+            {
+                return RedirectToAction("Index", "Home", new { ex.Message });
+            }
+            return RedirectToAction("HomeViewWithUser", "Home", new { userId = userModel.Id});
         }
+        #endregion
+
+
+
+        #region Fields
+
+        private INewsRepository _newsRepository;
+        private IRegistrationService _registrationService;
+        private DataBaseService _dataBaseService;
+
+        private const int _newsCount = 5;
+
+        #endregion
     }
 }

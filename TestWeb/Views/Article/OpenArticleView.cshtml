@@ -1,0 +1,163 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="Japan language, japan, nihongo, nippongo, японский язык, японский, язык, курсы японского языка" />
+    <meta name="description" content="Курсы Японского языка" />
+    <link href="~/css/ResetStyle.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/Article Page Style/OpenArticlePageStyle.css" rel="stylesheet" type="text/css" />
+    <title> Курсы Японского языка </title>
+</head>
+<body>
+    <div class="backButton">
+        <a href="#" class="BB" tabindex="0">UP</a>
+    </div>
+    <div class="wrap">
+
+        <div class="row row-1">
+            <div class="col col-1">
+                @if (ViewBag.User != null)
+                {<a href="../Home/HomeViewWithUser?userId=@ViewBag.User.Id">Главная</a>}
+                @if (ViewBag.User == null)
+                {<a href="../Home/Index">Главная</a>}
+            </div>
+            <div class="col col-2">
+                @if (ViewBag.User != null)
+                {<a href="../News/NewsView?userId=@ViewBag.User.Id">Новости</a>}
+                @if (ViewBag.User == null)
+                {<a href="../News/NewsView">Новости</a>}
+            </div>
+            <div class="col col-3">
+                @if (ViewBag.User != null)
+                {<a href="../Course/CoursesView?userId=@ViewBag.User.Id">Курсы</a>}  @if (ViewBag.User == null)
+                {<a href="../Course/CoursesView">Курсы</a>}
+            </div>
+            <div class="col col-4">
+                @if (ViewBag.User != null)
+                {
+                    <a href="../Feedback/FeedbackView?userId=@ViewBag.User.Id">Обратная связь</a>
+                }
+                else
+                {
+                    <a href="../Feedback/FeedbackView">Обратная связь</a>
+                }
+            </div>
+            <div class="col col-5">
+                @if (ViewBag.User != null)
+                {<a href="../Article/ArticlesView?userId=@ViewBag.User.Id">Статьи</a>}
+                        @if (ViewBag.User == null)
+                        {<a href="../Article/ArticlesView">Статьи</a>}
+                    </div>
+            @if (ViewBag.User != null)
+            {
+                <div class="col col-6"><a href="../Home/HomeViewWithUser?userId=@ViewBag.User.Id">Добро пожаловать: @ViewBag.User.Login</a></div>
+            }
+        </div>
+
+        <div class="row row-2">
+            <div class="col col-1"><img src="~/images/Article Page Images/@ViewBag.ArticleOpen.ImagePath" alt="error"></div>
+            <div class="col col-2"><p>@ViewBag.ArticleOpen.Title</p></div>
+        </div>
+
+        <div class="row row-3">
+            <p class="title">@ViewBag.ArticleOpen.Title</p>
+            <p class="description">@ViewBag.ArticleOpen.Description</p>
+        </div>
+        <dib class="row row-4">
+            <p>@ViewBag.ArticleOpen.Date.ToString("dd/MM/yyyy")</p>
+        </dib>
+        <div class="row row-5">
+            <p>
+                @ViewBag.ArticleOpen.Text
+            </p>
+        </div>
+        <div class="row row-6">
+            @if (ViewBag.User != null)
+            {<div class="col col-1"><a href="../Article/ArticlesView?userId=@ViewBag.User.Id">Другие статьи</a></div>}
+            @if (ViewBag.User == null)
+            {
+                <div class="col col-1"><a href="../Article/ArticlesView">Другие статьи</a></div>
+            }
+        </div>
+        <div class="row row-7">
+            @if (ViewBag.User != null)
+            {
+                <div class="col col-1">
+                    <a href="../Article/OpenArticleView?id=@ViewBag.Articles[0].Id&userId=@ViewBag.User.Id">
+                        <img src="~/images/Article Page Images/@ViewBag.Articles[0].ImagePath" alt="">
+                        <p>@ViewBag.Articles[0].Title</p>
+                    </a>
+                </div>
+                <div class="col col-2">
+                    <a href="../Article/OpenArticleView?id=@ViewBag.Articles[1].Id&userId=@ViewBag.User.Id">
+                        <img src="~/images/Article Page Images/@ViewBag.Articles[1].ImagePath" alt="">
+                        <p>@ViewBag.Articles[1].Title</p>
+                    </a>
+                </div>
+                <div class="col col-3">
+                    <a href="../Article/OpenArticleView?id=@ViewBag.Articles[2].Id&userId=@ViewBag.User.Id">
+                        <img src="~/images/Article Page Images/@ViewBag.Articles[2].ImagePath" alt="">
+                        <p>@ViewBag.Articles[2].Title</p>
+                    </a>
+                </div>
+                <div class="col col-4">
+                    <a href="../Article/OpenArticleView?id=@ViewBag.Articles[3].Id&userId=@ViewBag.User.Id">
+                        <img src="~/images/Article Page Images/@ViewBag.Articles[3].ImagePath" alt="">
+                        <p>@ViewBag.Articles[3].Title</p>
+                    </a>
+                </div>
+            }
+            @if (ViewBag.User == null)
+            {
+                <div class="col col-1">
+                    <a href="../Article/OpenArticleView?id=@ViewBag.Articles[0]].Id">
+                        <img src="~/images/Article Page Images/@ViewBag.Articles[0].ImagePath" alt="">
+                        <p>@ViewBag.Articles[0].Title</p>
+                    </a>
+                </div>
+                <div class="col col-2">
+                    <a href="../Article/OpenArticleView?id=@ViewBag.Articles[1].Id">
+                        <img src="~/images/Article Page Images/@ViewBag.Articles[1].ImagePath" alt="">
+                        <p>@ViewBag.Articles[1].Title</p>
+                    </a>
+                </div>
+                <div class="col col-3">
+                    <a href="../Article/OpenArticleView?id=@ViewBag.Articles[2].Id">
+                        <img src="~/images/Article Page Images/@ViewBag.Articles[2].ImagePath" alt="">
+                        <p>@ViewBag.Articles[2].Title</p>
+                    </a>
+                </div>
+                <div class="col col-4">
+                    <a href="../Article/OpenArticleView?id=@ViewBag.Articles[3].Id">
+                        <img src="~/images/Article Page Images/@ViewBag.Articles[3].ImagePath" alt="">
+                        <p>@ViewBag.Articles[3].Title</p>
+                    </a>
+                </div>
+            }
+        </div>
+        <div class="row row-8">
+            <div class="col col-1">
+                <img src="~/images/Article Page Images/Home Page Image.jpg" alt="error">
+            </div>
+            <div class="col col-2">
+                @if (ViewBag.User != null)
+                {
+                    <a href="../Feedback/FeedbackView?userId=@ViewBag.User.Id">Обратная связь</a>
+                }
+                else
+                {
+                    <a href="../Feedback/FeedbackView">Обратная связь</a>
+                }
+                <p>E-mail: vinnik_21@bk.ru</p>
+                <p class="p-1">Все права защищены (с)</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -7,8 +7,37 @@ namespace TestWeb.Models
 {
     public class UserModel
     {
+        #region Constructors
+
+        public UserModel()
+        {
+
+        }
+        public UserModel(int id, string login, string password, string email, string country, short age, int money)
+        {
+            Id = id;
+            Login = login;
+            Password = password;
+            Email = email;
+            Country = country;
+            Age = age;
+            Money = money;
+        }
+
+        #endregion
+
+
 
         #region Get/Set
+
+        public int Id
+        {
+            get => _id;
+            set
+            {
+                _id = value;
+            }
+        }
 
         public string Login
         {
@@ -42,6 +71,7 @@ namespace TestWeb.Models
                 _country = value;
             }
         }
+
         public short Age
         {
             get => _age;
@@ -50,6 +80,7 @@ namespace TestWeb.Models
                 _age = value;
             }
         } 
+
         public int Money
         {
             get => _money;
@@ -65,11 +96,15 @@ namespace TestWeb.Models
 
         #region Fields
 
+        private int _id;
+
         private string _login;
         private string _password;
         private string _email;
         private string _country;
+
         private short _age;
+
         private int _money;
 
         #endregion

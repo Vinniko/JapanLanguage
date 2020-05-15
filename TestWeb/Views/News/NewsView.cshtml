@@ -1,0 +1,227 @@
+﻿
+@{
+    Layout = null;
+    double newsCount = ViewBag.News.Count;
+    double pagesCount = newsCount / 5;
+    int pageNumber = ViewBag.PageNumber;
+    int nextPage()
+    {
+        return pageNumber += 2;
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="Japan language, japan, nihongo, nippongo, японский язык, японский, язык, курсы японского языка" />
+    <meta name="description" content="Курсы Японского языка" />
+    <link href="~/css/ResetStyle.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/News Page Style/NewsPageStyle.css" rel="stylesheet" type="text/css" />
+    <title> Курсы Японского языка </title>
+</head>
+<body>
+    <div class="backButton">
+        <a href="#" class="BB" tabindex="0">UP</a>
+    </div>
+    <div class="wrap">
+
+        <div class="row row-1">
+            <div class="col col-1">@if(ViewBag.User != null){ <a href="../Home/HomeViewWithUser?userId=@ViewBag.User.Id">Главная</a> }
+            @if(ViewBag.User == null) { <a href="../Home/Index">Главная</a>} </div>
+            <div class="col col-2"><a href="">Новости</a></div>
+            <div class="col col-3">
+                @if (ViewBag.User != null)
+                {<a href="../Course/CoursesView?userId=@ViewBag.User.Id">Курсы</a>}  @if (ViewBag.User == null)
+                {<a href="../Course/CoursesView">Курсы</a>}
+            </div>
+            <div class="col col-4">
+                @if (ViewBag.User != null)
+                {
+                    <a href="../Feedback/FeedbackView?userId=@ViewBag.User.Id">Обратная связь</a>
+                }
+                else
+                {
+                    <a href="../Feedback/FeedbackView">Обратная связь</a>
+                }
+            </div>
+            <div class="col col-5">
+                @if (ViewBag.User != null)
+                {<a href="../Article/ArticlesView?userId=@ViewBag.User.Id">Статьи</a>}
+                        @if (ViewBag.User == null)
+                        {<a href="../Article/ArticlesView">Статьи</a>}
+                    </div>
+            @if (ViewBag.User != null)
+            {
+                <div class="col col-6"><a href="../Home/HomeViewWithUser?userId=@ViewBag.User.Id">Добро пожаловать: @ViewBag.User.Login</a></div>
+            }
+
+        </div>
+
+        <div class="row row-2">
+            <p>Новости:</p>
+            <p>последние новости сайта</p>
+        </div>
+
+        <div class="row row-3">
+            @if (ViewBag.User == null)
+            {
+                <div class="block block-1">
+                    <div class="col col-1"><a href="../News/OpenNewsView?id=@ViewBag.News[0 + pageNumber * 5].ID"><img src="~/images/News Page Images/@ViewBag.News[0 + pageNumber * 5].ImagePath" alt="error"></a></div>
+                    <div class="col col-2">
+                        <b>@ViewBag.News[0 + pageNumber * 5].Title</b>
+                        <p class="text">@ViewBag.News[0 + pageNumber * 5].Description</p>
+                        <div class="block block-in">
+                            <a href="../News/OpenNewsView?id=@ViewBag.News[0 + pageNumber * 5].ID">Перейти</a>
+                            <b class="date">@ViewBag.News[0 + pageNumber * 5].Date.ToString("dd/MM/yyyy")</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="block block-2">
+                    <div class="col col-1"><a href="../News/OpenNewsView?id=@ViewBag.News[1 + pageNumber * 5].ID"><img src="~/images/News Page Images/@ViewBag.News[1 + pageNumber * 5].ImagePath" alt=""></a></div>
+                    <div class="col col-2">
+                        <b>@ViewBag.News[1 + pageNumber * 5].Title</b>
+                        <p class="text">@ViewBag.News[1 + pageNumber * 5].Description</p>
+                        <div class="block block-in">
+                            <a href="../News/OpenNewsView?id=@ViewBag.News[1 + pageNumber * 5].ID">Перейти</a>
+                            <b class="date">@ViewBag.News[1 + pageNumber * 5].Date.ToString("dd/MM/yyyy")</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="block block-3">
+                    <div class="col col-1"><a href="../News/OpenNewsView?id=@ViewBag.News[2 + pageNumber * 5].ID"><img src="~/images/News Page Images/@ViewBag.News[2 + pageNumber * 5].ImagePath" alt=""></a></div>
+                    <div class="col col-2">
+                        <b>@ViewBag.News[2 + pageNumber * 5].Title</b>
+                        <p class="text">@ViewBag.News[2 + pageNumber * 5].Description</p>
+                        <div class="block block-in">
+                            <a href="../News/OpenNewsView?id=@ViewBag.News[2 + pageNumber * 5].ID">Перейти</a>
+                            <b class="date">@ViewBag.News[2 + pageNumber * 5].Date.ToString("dd/MM/yyyy")</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="block block-4">
+                    <div class="col col-1"><a href="../News/OpenNewsView?id=@ViewBag.News[3 + pageNumber * 5].ID"><img src="~/images/News Page Images/@ViewBag.News[3 + pageNumber * 5].ImagePath" alt=""></a></div>
+                    <div class="col col-2">
+                        <b>@ViewBag.News[3 + pageNumber * 5].Title</b>
+                        <p class="text">@ViewBag.News[3 + pageNumber * 5].Description</p>
+                        <div class="block block-in">
+                            <a href="../News/OpenNewsView?id=@ViewBag.News[3 + pageNumber * 5].ID">Перейти</a>
+                            <b class="date">@ViewBag.News[3 + pageNumber * 5].Date.ToString("dd/MM/yyyy")</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="block block-5">
+                    <div class="col col-1"><a href="../News/OpenNewsView?id=@ViewBag.News[4 + pageNumber * 5].ID"><img src="~/images/News Page Images/@ViewBag.News[4 + pageNumber * 5].ImagePath" alt=""></a></div>
+                    <div class="col col-2">
+                        <b>@ViewBag.News[4 + pageNumber * 5].Title</b>
+                        <p class="text">@ViewBag.News[4 + pageNumber * 5].Description</p>
+                        <div class="block block-in">
+                            <a href="../News/OpenNewsView?id=@ViewBag.News[4 + pageNumber * 5].ID">Перейти</a>
+                            <b class="date">@ViewBag.News[4 + pageNumber * 5].Date.ToString("dd/MM/yyyy")</b>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (ViewBag.User != null)
+            {
+                <div class="block block-1">
+                    <div class="col col-1"><a href="../News/OpenNewsView?id=@ViewBag.News[0 + pageNumber * 5].ID&userId=@ViewBag.User.Id"><img src="~/images/News Page Images/@ViewBag.News[0 + pageNumber * 5].ImagePath" alt="error"></a></div>
+                    <div class="col col-2">
+                        <b>@ViewBag.News[0 + pageNumber * 5].Title</b>
+                        <p class="text">@ViewBag.News[0 + pageNumber * 5].Description</p>
+                        <div class="block block-in">
+                            <a href="../News/OpenNewsView?id=@ViewBag.News[0 + pageNumber * 5].ID&userId=@ViewBag.User.Id">Перейти</a>
+                            <b class="date">@ViewBag.News[0 + pageNumber * 5].Date.ToString("dd/MM/yyyy")</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="block block-2">
+                    <div class="col col-1"><a href="../News/OpenNewsView?id=@ViewBag.News[1 + pageNumber * 5].ID&userId=@ViewBag.User.Id"><img src="~/images/News Page Images/@ViewBag.News[1 + pageNumber * 5].ImagePath" alt=""></a></div>
+                    <div class="col col-2">
+                        <b>@ViewBag.News[1 + pageNumber * 5].Title</b>
+                        <p class="text">@ViewBag.News[1 + pageNumber * 5].Description</p>
+                        <div class="block block-in">
+                            <a href="../News/OpenNewsView?id=@ViewBag.News[1 + pageNumber * 5].ID&userId=@ViewBag.User.Id">Перейти</a>
+                            <b class="date">@ViewBag.News[1 + pageNumber * 5].Date.ToString("dd/MM/yyyy")</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="block block-3">
+                    <div class="col col-1"><a href="../News/OpenNewsView?id=@ViewBag.News[2 + pageNumber * 5].ID&userId=@ViewBag.User.Id"><img src="~/images/News Page Images/@ViewBag.News[2 + pageNumber * 5].ImagePath" alt=""></a></div>
+                    <div class="col col-2">
+                        <b>@ViewBag.News[2 + pageNumber * 5].Title</b>
+                        <p class="text">@ViewBag.News[2 + pageNumber * 5].Description</p>
+                        <div class="block block-in">
+                            <a href="../News/OpenNewsView?id=@ViewBag.News[2 + pageNumber * 5].ID&userId=@ViewBag.User.Id">Перейти</a>
+                            <b class="date">@ViewBag.News[2 + pageNumber * 5].Date.ToString("dd/MM/yyyy")</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="block block-4">
+                    <div class="col col-1"><a href="../News/OpenNewsView?id=@ViewBag.News[3 + pageNumber * 5].ID&userId=@ViewBag.User.Id"><img src="~/images/News Page Images/@ViewBag.News[3 + pageNumber * 5].ImagePath" alt=""></a></div>
+                    <div class="col col-2">
+                        <b>@ViewBag.News[3 + pageNumber * 5].Title</b>
+                        <p class="text">@ViewBag.News[3 + pageNumber * 5].Description</p>
+                        <div class="block block-in">
+                            <a href="../News/OpenNewsView?id=@ViewBag.News[3 + pageNumber * 5].ID&userId=@ViewBag.User.Id">Перейти</a>
+                            <b class="date">@ViewBag.News[3 + pageNumber * 5].Date.ToString("dd/MM/yyyy")</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="block block-5">
+                    <div class="col col-1"><a href="../News/OpenNewsView?id=@ViewBag.News[4 + pageNumber * 5].ID&userId=@ViewBag.User.Id"><img src="~/images/News Page Images/@ViewBag.News[4 + pageNumber * 5].ImagePath" alt=""></a></div>
+                    <div class="col col-2">
+                        <b>@ViewBag.News[4 + pageNumber * 5].Title</b>
+                        <p class="text">@ViewBag.News[4 + pageNumber * 5].Description</p>
+                        <div class="block block-in">
+                            <a href="../News/OpenNewsView?id=@ViewBag.News[4 + pageNumber * 5].ID&userId=@ViewBag.User.Id">Перейти</a>
+                            <b class="date">@ViewBag.News[4 + pageNumber * 5].Date.ToString("dd/MM/yyyy")</b>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <dib class="row row-4">
+            @if (pageNumber != 0)
+            {
+                @if (ViewBag.User != null)
+                {<a class="butt" href="../News/NewsView?id=@pageNumber&userId=@ViewBag.User.Id">Предыдущая</a>}
+                @if (ViewBag.User == null)
+                {<a class="butt" href="../News/NewsView?id=@pageNumber">Предыдущая</a>}
+            }
+            @for (var i = 0; i < pagesCount; i++)
+            {
+                int tmp = i + 1;
+                @if (ViewBag.User != null)
+                {<a href="../News/NewsView?id=@tmp&userId=@ViewBag.User.Id">@tmp</a>}
+                @if (ViewBag.User == null)
+                {<a href="../News/NewsView?id=@tmp">@tmp</a>}
+            }
+            @if (pageNumber + 1 != pagesCount)
+            {@if (ViewBag.User != null)
+                {<a class="butt" href="../News/NewsView?id=@nextPage()&userId=@ViewBag.User.Id">Следующая</a>}
+            @if (ViewBag.User == null) {<a class="butt" href="../News/NewsView?id=@nextPage()">Следующая</a> }
+}
+        </dib>
+        <div class="row row-5">
+            <div class="col col-1">
+                <img src="~/images/News Page Images/Home Page Image.jpg" alt="error">
+            </div>
+            <div class="col col-2">
+                @if (ViewBag.User != null)
+                {
+                    <a href="../Feedback/FeedbackView?userId=@ViewBag.User.Id">Обратная связь</a>
+                }
+                else
+                {
+                    <a href="../Feedback/FeedbackView">Обратная связь</a>
+                }
+                <p>E-mail: vinnik_21@bk.ru</p>
+                <p class="p-1">Все права защищены (с)</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

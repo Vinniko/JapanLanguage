@@ -8,52 +8,74 @@ using Microsoft.Extensions.Logging;
 using TestWeb.Models;
 using TestWeb.Repository;
 using TestWeb.Services;
+using TestWeb.Interfaces;
 
 namespace TestWeb.Controllers
 {
     public class HomeController : Controller
     {
-        private NewsRepository _newsRepository;
-        DataBaseService _dataBaseService;
-        NewsModel newsModel = new NewsModel();
-        public HomeController(NewsRepository newsRepository, DataBaseService dataBaseService)
+
+        #region Constructors
+
+        public HomeController(INewsRepository newsRepository, DataBaseService dataBaseService, IRegistrationService registrationService, IArticleRepository articleRepository)
         {
             _newsRepository = newsRepository;
+            _registrationService = registrationService;
             _dataBaseService = dataBaseService;
-            //_dataBaseService.AddNews("Start");
+            _articleRepository = articleRepository;
         }
 
-        public  IActionResult Index()
-        {
-            newsModel.Text = _newsRepository.title;
-            newsModel.Title = _dataBaseService.GetNews();
-            return View(newsModel);
-        }
+        #endregion
 
-        public IActionResult AuthorizationView()
-        {
-            return View();
-        }
+
+
+        #region MainLogic
 
         [HttpGet]
-        public IActionResult Index(string title)
+        public IActionResult Index(string message)
         {
-            _dataBaseService.EditNews(newsModel.Title + "T");
-            newsModel.Title = _dataBaseService.GetNews();
-            newsModel.Text = _newsRepository.title;
-            return View(newsModel);
+            ViewBag.Message = message;
+            ViewBag.Articles = _articleRepository.GetLastArticles(_articlesCount);
+            return View(_newsRepository.GetLastNews(_newsCount));
         }
 
-
-        public IActionResult Privacy()
+        public IActionResult AuthorizationView(string message)
         {
+            ViewBag.News = _newsRepository.GetLastNews(_newsCount);
+            ViewBag.Error = message;
+            ViewBag.Articles = _articleRepository.GetLastArticles(_articlesCount);
             return View();
         }
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult HomeViewWithUser(int userId)
+        {
+            ViewBag.User = _dataBaseService.GetUser(userId);
+            ViewBag.News = _newsRepository.GetLastNews(_newsCount);
+            ViewBag.Articles = _articleRepository.GetLastArticles(_articlesCount);
+            return View();
+        }
+
+        #endregion
+
+
+
+        #region Fields
+
+        private INewsRepository _newsRepository;
+        private IRegistrationService _registrationService;
+        private IArticleRepository _articleRepository;
+        private DataBaseService _dataBaseService;
+
+        private const int _newsCount = 5;
+        private const int _articlesCount = 3;
+
+        #endregion
     }
 }

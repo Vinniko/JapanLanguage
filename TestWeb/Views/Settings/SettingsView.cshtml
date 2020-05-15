@@ -1,0 +1,148 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="Japan language, japan, nihongo, nippongo, японский язык, японский, язык, курсы японского языка" />
+    <meta name="description" content="Курсы Японского языка" />
+    <link href="~/css/ResetStyle.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/Settings Page Style/Setting Page Style.css" rel="stylesheet" type="text/css" />
+    <title> Курсы Японского языка </title>
+</head>
+<body>
+    <div class="backButton">
+        <a href="#" class="BB" tabindex="0">UP</a>
+    </div>
+    <div class="wrap">
+
+        <div class="row row-1">
+            <div class="col col-1"><a href="../Home/HomeViewWithUser?userId=@ViewBag.User.Id">Главная</a></div>
+            <div class="col col-2"><a href="../News/NewsView?userId=@ViewBag.User.Id">Новости</a></div>
+            <div class="col col-3"><a href="../Course/CoursesView?userId=@ViewBag.User.Id">Курсы</a></div>
+            <div class="col col-4">
+                <a href="../Feedback/FeedbackView?userId=@ViewBag.User.Id">Обратная связь</a>
+            </div>
+            <div class="col col-5"><a href="../Article/ArticlesView?userId=@ViewBag.User.Id">Статьи</a></div>
+            <div class="col col-6"><a href="../Home/HomeViewWithUser?userId=@ViewBag.User.Id">Добро пожаловать: @ViewBag.User.Login</a></div>
+        </div>
+
+        <div class="row row-2">
+            <p>Настройки</p>
+        </div>
+
+        <form class="form-1" method="post" asp-action="SaveSettings" asp-controller="Settings">
+            <input type="hidden" value="@ViewBag.User.Id" name="_userId" />
+            <div class="row row-3">
+                <div class="col col-1">
+                    @if (ViewBag.LoginMessage == null)
+                    {
+                        <img src="" alt="" />
+                        <div class="block-info">
+                            <input type="text" placeholder="@string.Concat("              ", ViewBag.User.Login)" value="@ViewBag.User.Login" name="login">
+                            <p>Логин</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <img src="~/images/Settings Page Images/error.png" />
+                        <div class="block-info">
+                            <input type="text" placeholder="@string.Concat("              ", ViewBag.LoginMessage)" name="login">
+                            <p>Логин</p>
+                        </div>
+                    }
+                </div>
+                <div class="col col-2">
+                    @if (ViewBag.PasswordMessage == null)
+                    {
+                        <img src="" alt="">
+                        <div class="block-info">
+                            <input type="text" placeholder="@string.Concat("              ", ViewBag.User.Password)" value="@ViewBag.User.Password" maxlength="16" name="password">
+                            <p>Пароль</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <img src="~/images/Settings Page Images/error.png" alt="">
+                        <div class="block-info">
+                            <input type="text" placeholder="@string.Concat("              ", ViewBag.PasswordMessage)" maxlength="16" name="password">
+                            <p>Пароль</p>
+                        </div>
+                    }
+                </div>
+                <div class="col col-3">
+                    <img src="" alt="">
+                    <div class="block-info">
+                        <input type="text" placeholder="@string.Concat("              ", ViewBag.User.Email)"  value="@ViewBag.User.Email"  readonly name="email">
+                        <p>E-mail</p>
+                    </div>
+                </div>
+                <div class="col col-4">
+                    <img src="" alt="">
+                    <div class="block-info">
+                        <select type="text" name="country">
+                            @for (var i = 0; i < ViewBag.Countries.Count; i++)
+                            {
+                                @if (ViewBag.Countries[i] == ViewBag.User.Country)
+                                {
+                                    <option selected="@ViewBag.Countries[i]">@ViewBag.Countries[i]</option>
+                                }
+                                else
+                                {
+                                    <option value="@ViewBag.Countries[i]">@ViewBag.Countries[i]</option>
+                                }
+                            }
+                        </select>
+                        <p>Страна</p>
+                    </div>
+                </div>
+                <div class="col col-5">
+                    @if (ViewBag.AgeMessage == null)
+                    {
+                        <img src="" alt="">
+                        <div class="block-info">
+                            <input type="text" placeholder="@string.Concat("              ", ViewBag.User.Age)"  value="@ViewBag.User.Age" name="age">
+                            <p>Возраст</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <img src="~/images/Settings Page Images/error.png" alt="">
+                        <div class="block-info">
+                            <input type="text" placeholder="@string.Concat("              ", ViewBag.AgeMessage)"  name="age">
+                            <p>Возраст</p>
+                        </div>
+                    }
+                </div>
+                <div class="col col-6">
+                    <img src="" alt="">
+                    <div class="block-info">
+                        <input type="text" name="money" value="@ViewBag.User.Money">
+                        <p>Номер кредитной карты или интернет-кошелька</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row row-4">
+                <input type="submit" value="Сохранить">
+            </div>
+        </form>
+            <div class="row row-5"></div>
+            <div class="row row-6">
+                <div class="col col-1">
+                    <img src="~/images/Settings Page Images/Home Page Image.jpg" alt="error">
+                </div>
+                <div class="col col-2">
+                    <a href="../Feedback/FeedbackView?userId=@ViewBag.User.Id">Обратная связь</a>
+                    <p>E-mail: vinnik_21@bk.ru</p>
+                    <p class="p-1">Все права защищены (с)</p>
+                </div>
+            </div>
+    </div>
+</body>
+</html>

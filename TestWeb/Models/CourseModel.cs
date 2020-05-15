@@ -7,9 +7,36 @@ namespace TestWeb.Models
 {
     public class CourseModel
     {
+        #region Constructors
+
+        public CourseModel()
+        {
+
+        }
+        public CourseModel(int id, string title, string description, int lessonsCount, int price, int hoursCount)
+        {
+            Id = id;
+            Title = title;
+            Description = description;
+            LessonCount = lessonsCount;
+            Price = price;
+            HoursCount = hoursCount;
+        }
+
+        #endregion
+
+
 
         #region Get/Set
 
+        public int Id
+        {
+            get => _id;
+            set
+            {
+                _id = value;
+            }
+        }
         public string Title
         {
             get => _title;
@@ -51,11 +78,14 @@ namespace TestWeb.Models
                 _hoursCount = value;
             }
         }
+
         #endregion
 
 
 
         #region Fields
+
+        private int _id;
 
         private string _title;
         private string _description;

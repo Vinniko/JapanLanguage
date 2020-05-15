@@ -1,4 +1,8 @@
-﻿@media screen and (min-width: 1200px) {
+﻿.row.row-5 .col.col-2 .block.block-4  a{
+    width: 100%;
+    height: 100%;
+}
+@media screen and (min-width: 1200px) {
     .wrap {
         display: flex;
         width: 100%;
@@ -31,6 +35,16 @@
         justify-content: center;
         align-items: center;
     }
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    a img {
+        border: none;
+        border-image-width: 0;
+    }
 
     .row.row-1 {
         height: 50px;
@@ -52,9 +66,9 @@
             }
 
         .row.row-1 a:hover {
-            -webkit-transform: scale(1.5);
-            -ms-ransform: scale(1.5);
-            transform: scale(1.5);
+            -webkit-transform: scale(1.3);
+            -ms-ransform: scale(1.3);
+            transform: scale(1.3);
         }
 
     .row.row-2 {
@@ -117,6 +131,13 @@
                 height: 26px;
                 border: black 3px solid;
                 margin-top: 56px;
+            }
+
+            .row.row-2 .col.col-2 .block.block-2 .block.block-4 p {
+                width: 354px;
+                color: orangered;
+                text-align: center;
+                margin: 10px;
             }
 
             .row.row-2 .col.col-2 .block.block-2 .block.block-4 .reg-button {
@@ -319,6 +340,10 @@
                 width: 608px;
             }
 
+                .row.row-5 .col.col-2 .block.block-1 a {
+                    height: 100%;
+                    width: 100%;
+                }
                 .row.row-5 .col.col-2 .block.block-1 img {
                     height: 100%;
                     width: 100%;
@@ -697,9 +722,9 @@
             }
 
         .row.row-1 a:hover {
-            -webkit-transform: scale(1.5);
-            -ms-ransform: scale(1.5);
-            transform: scale(1.5);
+            -webkit-transform: scale(1.3);
+            -ms-ransform: scale(1.3 );
+            transform: scale(1.3);
         }
 
     .row.row-2 {
@@ -778,6 +803,12 @@
                     height: 26px;
                     border: black 3px solid;
                     margin-top: 56px;
+                }
+                .row.row-2 .col.col-2 .block.block-2 .block.block-4 p {
+                    width: 354px;
+                    color: orangered;
+                    text-align: center;
+                    margin: 10px;
                 }
 
                 .row.row-2 .col.col-2 .block.block-2 .block.block-4 .reg-button {
@@ -980,7 +1011,10 @@
                 height: 574px;
                 width: 608px;
             }
-
+                .row.row-5 .col.col-2 .block.block-1 a {
+                    height: 100%;
+                    width: 100%;
+                }
                 .row.row-5 .col.col-2 .block.block-1 img {
                     height: 100%;
                     width: 100%;
@@ -1359,9 +1393,9 @@
             }
 
         .row.row-1 a:hover {
-            -webkit-transform: scale(1.5);
-            -ms-ransform: scale(1.5);
-            transform: scale(1.5);
+            -webkit-transform: scale(1.3);
+            -ms-ransform: scale(1.3);
+            transform: scale(1.3);
         }
 
     .row.row-2 {
@@ -1440,6 +1474,12 @@
                     height: 26px;
                     border: black 3px solid;
                     margin-top: 56px;
+                }
+                .row.row-2 .col.col-2 .block.block-2 .block.block-4 p {
+                    width: 354px;
+                    color: orangered;
+                    text-align: center;
+                    margin: 10px;
                 }
 
                 .row.row-2 .col.col-2 .block.block-2 .block.block-4 .reg-button {
@@ -1642,7 +1682,10 @@
                 height: 574px;
                 width: 608px;
             }
-
+                .row.row-5 .col.col-2 .block.block-1 a {
+                    height: 100%;
+                    width: 100%;
+                }
                 .row.row-5 .col.col-2 .block.block-1 img {
                     height: 100%;
                     width: 100%;
@@ -2021,9 +2064,9 @@
             }
 
         .row.row-1 a:hover {
-            -webkit-transform: scale(1.5);
-            -ms-ransform: scale(1.5);
-            transform: scale(1.5);
+            -webkit-transform: scale(1.3);
+            -ms-ransform: scale(1.3);
+            transform: scale(1.3);
         }
 
     .row.row-2 {
@@ -2090,21 +2133,27 @@
                         font-size: 18.47pt;
                     }
 
-                .row.row-2 .col.col-2 .block.block-2 .block.block-4 .input-1 {
+                .row.row-2 .col.col-2 .block.block-2 .block.block-4 .form-1 .input-1 {
                     width: 100%;
                     height: 26px;
                     border: black 3px solid;
                     margin-top: 50px;
                 }
 
-                .row.row-2 .col.col-2 .block.block-2 .block.block-4 .input-2 {
+                .row.row-2 .col.col-2 .block.block-2 .block.block-4 .form-1 .input-2 {
                     width: 100%;
                     height: 26px;
                     border: black 3px solid;
                     margin-top: 56px;
                 }
+                .row.row-2 .col.col-2 .block.block-2 .block.block-4 p {
+                    width: 354px;
+                    color: orangered;
+                    text-align: center;
+                    margin: 10px;
+                }
 
-                .row.row-2 .col.col-2 .block.block-2 .block.block-4 .reg-button {
+                .row.row-2 .col.col-2 .block.block-2 .block.block-4 .form-1 .reg-button {
                     display: inline-block;
                     width: 150px;
                     height: 20px;
@@ -2305,7 +2354,10 @@
                 height: 574px;
                 width: 608px;
             }
-
+                .row.row-5 .col.col-2 .block.block-1 a {
+                    height: 100%;
+                    width: 100%;
+                }
                 .row.row-5 .col.col-2 .block.block-1 img {
                     height: 100%;
                     width: 100%;

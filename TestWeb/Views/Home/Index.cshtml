@@ -1,6 +1,8 @@
-﻿@model TestWeb.Models.NewsModel
+﻿@model List<TestWeb.Models.NewsModel>
 @{
     Layout = null;
+    string errorString = String.Empty;
+    errorString = ViewBag.Message;
 }
 
 <!DOCTYPE html>
@@ -22,10 +24,12 @@
 
         <div class="row row-1">
             <div class="col col-1"><a href="">Главная</a></div>
-            <div class="col col-2"><a href="">Новости</a></div>
-            <div class="col col-3"><a href="">Курсы</a></div>
-            <div class="col col-4"><a href="">Обратная связь</a></div>
-            <div class="col col-5"><a href="">Статьи</a></div>
+            <div class="col col-2"><a href="../News/NewsView">Новости</a></div>
+            <div class="col col-3"><a href="../Course/CoursesView">Курсы</a></div>
+            <div class="col col-4">
+                    <a href="../Feedback/FeedbackView">Обратная связь</a>
+            </div>
+            <div class="col col-5"><a href="../Article/ArticlesView">Статьи</a></div>
         </div>
 
         <div class="row row-2">
@@ -44,13 +48,13 @@
                         <div class="block block-5">
                             <b>Регистрация</b>
                         </div>
-                        <input class="input-1" type="text" placeholder="    E-Mail">
-                        <input class="input-2" type="text" placeholder="    Password">
-                        <form method="post" asp-action="Registration" asp-controller="Registration">
-                            <input class="input-3" type="submit" value="Отправить" />
-                            <a class="reg-button" href="">Создать аккаунт</a>
+                        <form class="form-1" method="post" asp-action="Registration" asp-controller="Registration">
+                            <input class="input-1" type="text" placeholder="    E-Mail" name="login" maxlength="24">
+                            <input class="input-2" type="text" placeholder="    Password" name="password" maxlength="16">
+                            <p>@errorString</p>
+                            <input class="reg-button" type="submit" value="Создать аккаунт" />
                         </form>
-                            <a class="auth-button" href="../Home/AuthorizationView">Уже есть аккаунт?</a>
+                        <a class="auth-button" href="../Home/AuthorizationView">Уже есть аккаунт?</a>
                     </div>
                 </div>
             </div>
@@ -74,69 +78,60 @@
             </div>
         </div>
         <dib class="row row-4">
-            <div class="col col-1"><a href="#"><p>Язык</p><img src="~/images/Home Page Images/Language Image 1.jpg" alt="error" /></a></div>
-            <div class="col col-2"><a href="#"><p>Исскуство</p><img src="~/images/Home Page Images/Art Image 1.jpg" alt="error"></a></div>
-            <div class="col col-3"><a href="#"><p>Культура</p><img src="~/images/Home Page Images/Culture Image 1.jpg" alt="error"></a></div>
+            <div class="col col-1"><a href="../Article/OpenArticleView?id=@ViewBag.Articles[0].Id"><p>Язык</p><img src="~/images/Home Page Images/@ViewBag.Articles[0].ImagePath" alt="error" /></a></div>
+            <div class="col col-2"><a href="../Article/OpenArticleView?id=@ViewBag.Articles[1].Id"><p>Исскуство</p><img src="~/images/Home Page Images/@ViewBag.Articles[1].ImagePath" alt="error"></a></div>
+            <div class="col col-3"><a href="../Article/OpenArticleView?id=@ViewBag.Articles[2].Id"><p>Культура</p><img src="~/images/Home Page Images/@ViewBag.Articles[2].ImagePath" alt="error"></a></div>
         </dib>
         <div class="row row-5">
             <div class="col col-1">
-                <a href="">Последние новости</a>
+                <a href="../News/NewsView">Последние новости</a>
                 <p>Япония здесь и сейчас</p>
             </div>
             <div class="col col-2">
                 <div class="block block-1">
-                    <img src="~/images/Home Page Images/First News Image 1.jpg" alt="error">
+                    <a href="../News/OpenNewsView?id=@Model.ElementAt(0).ID"><img src="~/images/Home Page Images/@Model.ElementAt(0).ImagePath"  alt="error" title="@String.Concat(Model.ElementAt(0).Title," ", Model.ElementAt(0).Description)"></a>
                 </div>
                 <div class="block block-2">
                     <div class="block block-2-1">
 
                         <div class="block block-2-1-1">
-                            <b>@Model.Title  @*КИОТСКИЙ АКЦЕНТ*@ </b>
+                            <b>@Model.ElementAt(1).Title </b>
                             <p>
-                                @Model.Text
-                                @*Хотите побольше узнать о Киотском акценте,
-                                    познакомится с историей его формирования и научиться
-                                    говорить используя его? Эта статья поможет вам
-                                    сделать первый шаг к изучению данного фонетического
-                                    аспекта.*@
+                                @Model.ElementAt(1).Description
                             </p>
-                            <a href="~/Home/Index/@Model.Title">Перейти</a>
+                            <a href="../News/OpenNewsView?id=@Model.ElementAt(1).ID">Перейти</a>
                         </div>
                         <div class="block block-2-1-2">
-                            <img src="~/images/Home Page Images/Second News Image.jpg" alt="error">
+                            <img src="~/images/Home Page Images/@Model.ElementAt(1).ImagePath" alt="error">
                         </div>
                     </div>
                     <div class="block block-2-2">
                         <div class="block block-2-2-1">
-                            <img src="~/images/Home Page Images/Third News Image.jpg" alt="error">
+                            <img src="~/images/Home Page Images/@Model.ElementAt(2).ImagePath" alt="error">
                         </div>
                         <div class="block block-2-2-2">
-                            <b>ЯПОНСКАЯ ГРАММАТИКА</b>
+                            <b>@Model.ElementAt(2).Title</b>
                             <p>
-                                Вводный урок в Японскую грамматику поможет вам не только
-                                узнать больше, но и понять что Японский язык не кусается,
-                                а его грамматика на самом деле очень проста и хороша для
-                                запоминания.
+                                @Model.ElementAt(2).Description
                             </p>
-                            <a href="">Перейти</a>
+                            <a href="../News/OpenNewsView?id=@Model.ElementAt(2).ID">Перейти</a>
                         </div>
                     </div>
                 </div>
                 <div class="block block-3">
                     <div class="block block-3-1">
-                        <img src="~/images/Home Page Images/Fourth News Image.jpg" alt="error">
+                        <img src="~/images/Home Page Images/@Model.ElementAt(3).ImagePath" alt="error">
                     </div>
                     <div class="block block-3-2">
-                        <b>ЯЗЫК С НОСИТЕЛЕМ</b>
+                        <b>@Model.ElementAt(3).Title</b>
                         <p>
-                            Узнай все секреты языка и научись легко общаться,
-                            благодаря живым урокам с носителем языка.
+                            @Model.ElementAt(3).Description
                         </p>
-                        <a href="">Перейти</a>
+                        <a href="../News/OpenNewsView?id=@Model.ElementAt(3).ID">Перейти</a>
                     </div>
                 </div>
                 <div class="block block-4">
-                    <img src="~/images/Home Page Images/Fifth News Image.jpg" alt="error">
+                    <a href="../News/OpenNewsView?id=@Model.ElementAt(4).ID"><img src="~/images/Home Page Images/@Model.ElementAt(4).ImagePath" alt="error" title="@String.Concat(Model.ElementAt(4).Title," ", Model.ElementAt(4).Description)"></a>
                 </div>
             </div>
         </div>
@@ -146,7 +141,7 @@
                 <img src="~/images/Home Page Images/Home Page Image.jpg" alt="error">
             </div>
             <div class="col col-2">
-                <a href="">Обратная связь</a>
+                    <a href="../Feedback/FeedbackView">Обратная связь</a>
                 <p>E-mail: vinnik_21@bk.ru</p>
                 <p class="p-1">Все права защищены (с)</p>
             </div>

@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TestWeb.Repository;
 using TestWeb.Services;
+using TestWeb.Interfaces;
 
 namespace TestWeb
 {
@@ -26,8 +27,18 @@ namespace TestWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddTransient<NewsRepository>();
+            services.AddTransient<INewsRepository, NewsRepository>();
             services.AddTransient<DataBaseService>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IRegistrationService, RegistrationService>();
+            services.AddTransient<IValidationService, ValidationService>();
+            services.AddTransient<IAuthorizationService, AuthorizationService>();
+            services.AddTransient<IArticleRepository, ArticleRepository>();
+            services.AddTransient<ICourseRepository, CourseRepository>();
+            services.AddTransient<ILessonRepository, LessonRepository>();
+            services.AddTransient<ILetterCreater, LetterCreater>();
+            services.AddTransient<ILetterSender, LetterSender>();
+            services.AddTransient<ICountryRepository, CountryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

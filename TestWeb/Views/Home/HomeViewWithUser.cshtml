@@ -1,0 +1,144 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="Japan language, japan, nihongo, nippongo, японский язык, японский, язык, курсы японского языка" />
+    <meta name="description" content="Курсы Японского языка" />
+    <link href="~/css/ResetStyle.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/Home Page Style/HomePageStyleWithUsercss.css" rel="stylesheet" type="text/css" />
+    <title> Курсы Японского языка </title>
+</head>
+<body>
+    <div class="backButton">
+        <a href="#" class="BB" tabindex="0">UP</a>
+    </div>
+    <div class="wrap">
+
+        <div class="row row-1">
+            <div class="col col-1"><a href="">Главная</a></div>
+            <div class="col col-2"><a href="../News/NewsView?userId=@ViewBag.User.Id">Новости</a></div>
+            <div class="col col-3"><a href="../Course/CoursesView?userId=@ViewBag.User.Id">Курсы</a></div>
+            <div class="col col-4"><a href="../Feedback/FeedbackView?userId=@ViewBag.User.Id">Обратная связь</a>
+            </div>
+            <div class="col col-5"><a href="../Article/ArticlesView?userId=@ViewBag.User.Id">Статьи</a></div>
+        </div>
+
+        <div class="row row-2">
+            <div class="col col-1">
+                <div class="block block-1">
+                    <img src="~/images/Home Page Images/Home Page Image.jpg" alt="error" />
+                </div>
+            </div>
+            <div class="col col-2">
+                <div class="block block-2">
+                    <div class="block block-3">
+                        <b>Добро пожаловать</b>
+                        <h3><i>В мир Японии</i></h3>
+                    </div>
+                    <div class="block block-4">
+                        <div class="block block-5">
+                            <b>@ViewBag.User.Login</b>
+                        </div>
+                        <a class="input-1" href="../Course/UserCoursesView?userId=@ViewBag.User.Id">Мои курсы</a> 
+                        <a class="input-2" href="../Settings/SettingsView?userId=@ViewBag.User.Id">Настройки</a>
+                        <a class="reg-button" href="../Home/AuthorizationView">Выход</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-3">
+            <div class="col col-1">
+                <i> Уникальное сочетание </i>
+                <b>Язык и Культура в одном флаконе</b>
+            </div>
+            <div class="col col-2">
+                <p>
+                    Начинающему японский язык может показаться довольно-таки сложным,
+                    ведь здесь даже запоминание новых слов представляет собой немалую
+                    проблему хотя бы потому, что японский язык возник и развивался в
+                    стороне от привычных нам европейских языков и не имеет с ними общей
+                    основы, в отличие, скажем, от языков романо-германской группы,
+                    имеющих в своем словарном наборе немало идентично звучащих слов,
+                    объединенных общим латино-греческим происхождением.
+                </p>
+            </div>
+        </div>
+        <dib class="row row-4">
+            <div class="col col-1"><a href="../Article/OpenArticleView?id=@ViewBag.Articles[0].Id&userId=@ViewBag.User.Id"><p>Язык</p><img src="~/images/Home Page Images/@ViewBag.Articles[0].ImagePath" alt="error" /></a></div>
+            <div class="col col-2"><a href="../Article/OpenArticleView?id=@ViewBag.Articles[1].Id&userId=@ViewBag.User.Id"><p>Исскуство</p><img src="~/images/Home Page Images/@ViewBag.Articles[1].ImagePath" alt="error"></a></div>
+            <div class="col col-3"><a href="../Article/OpenArticleView?id=@ViewBag.Articles[2].Id&userId=@ViewBag.User.Id"><p>Культура</p><img src="~/images/Home Page Images/@ViewBag.Articles[2].ImagePath" alt="error"></a></div>
+        </dib>
+        <div class="row row-5">
+            <div class="col col-1">
+                <a href="../News/NewsView?userId=@ViewBag.User.Id">Последние новости</a>
+                <p>Япония здесь и сейчас</p>
+            </div>
+            <div class="col col-2">
+                <div class="block block-1">
+                    <a href="../News/OpenNewsView?id=@ViewBag.News[0].ID&userId=@ViewBag.User.Id"><img src="~/images/Home Page Images/@ViewBag.News[0].ImagePath" alt="error" title="@String.Concat(@ViewBag.News[0].Title," ", @ViewBag.News[0].Description)"></a>
+                </div>
+                <div class="block block-2">
+                    <div class="block block-2-1">
+
+                        <div class="block block-2-1-1">
+                            <b>@ViewBag.News[1].Title </b>
+                            <p>
+                                @ViewBag.News[1].Description
+                            </p>
+                            <a href="../News/OpenNewsView?id=@ViewBag.News[1].ID&userId=@ViewBag.User.Id">Перейти</a>
+                        </div>
+                        <div class="block block-2-1-2">
+                            <img src="~/images/Home Page Images/@ViewBag.News[1].ImagePath" alt="error">
+                        </div>
+                    </div>
+                    <div class="block block-2-2">
+                        <div class="block block-2-2-1">
+                            <img src="~/images/Home Page Images/@ViewBag.News[2].ImagePath" alt="error">
+                        </div>
+                        <div class="block block-2-2-2">
+                            <b>@ViewBag.News[2].Title</b>
+                            <p>
+                                @ViewBag.News[2].Description
+                            </p>
+                            <a href="../News/OpenNewsView?id=@ViewBag.News[2].ID&userId=@ViewBag.User.Id">Перейти</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="block block-3">
+                    <div class="block block-3-1">
+                        <img src="~/images/Home Page Images/@ViewBag.News[3].ImagePath" alt="error">
+                    </div>
+                    <div class="block block-3-2">
+                        <b>@ViewBag.News[3].Title</b>
+                        <p>
+                            @ViewBag.News[3].Description
+                        </p>
+                        <a href="../News/OpenNewsView?id=@ViewBag.News[3].ID&userId=@ViewBag.User.Id">Перейти</a>
+                    </div>
+                </div>
+                <div class="block block-4">
+                    <a href="../News/OpenNewsView?id=@ViewBag.News[4].ID&userId=@ViewBag.User.Id"><img src="~/images/Home Page Images/@ViewBag.News[4].ImagePath" alt="error" title="@String.Concat(@ViewBag.News[4].Title," ", @ViewBag.News[4].Description)"></a>
+                </div>
+            </div>
+        </div>
+        <div class="row row-6"></div>
+        <div class="row row-7">
+            <div class="col col-1">
+                <img src="~/images/Home Page Images/Home Page Image.jpg" alt="error">
+            </div>
+            <div class="col col-2">
+                <a href="../Feedback/FeedbackView?userId=@ViewBag.User.Id">Обратная связь</a>
+                <p>E-mail: vinnik_21@bk.ru</p>
+                <p class="p-1">Все права защищены (с)</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

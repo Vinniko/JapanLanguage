@@ -8,7 +8,37 @@ namespace TestWeb.Models
     public class NewsModel
     {
 
+        #region Constructors
+
+        public NewsModel()
+        {
+
+        }
+
+        public NewsModel(int id, string title, string text, string imagePath, DateTime date, string description)
+        {
+            ID = id;
+            Title = title;
+            Text = text;
+            ImagePath = imagePath;
+            Date = date;
+            Description = description;
+        }
+
+        #endregion
+
+
+
         #region Get/Set
+
+        public int ID
+        {
+            get => _id;
+            set
+            {
+                _id = value;
+            }
+        }
 
         public string Title
         {
@@ -26,9 +56,26 @@ namespace TestWeb.Models
                 _text = value;
             }
         }
+        public string Description
+        {
+            get => _description;
+            set
+            {
+                _description = value;
+            }
+        }
+        public string ImagePath
+        {
+            get => _imagePath;
+            set
+            {
+                _imagePath = value;
+            }
+        }
+
         public DateTime Date
         {
-            get => _date;
+            get => _date.Date;
             set
             {
                 _date = value;
@@ -41,8 +88,13 @@ namespace TestWeb.Models
 
         #region Fields
 
+        private int _id;
+
         private string _title;
         private string _text;
+        private string _description;
+        private string _imagePath;
+
         private DateTime _date;
 
         #endregion

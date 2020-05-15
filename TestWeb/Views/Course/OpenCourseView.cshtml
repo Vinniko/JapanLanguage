@@ -1,0 +1,170 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="Japan language, japan, nihongo, nippongo, японский язык, японский, язык, курсы японского языка" />
+    <meta name="description" content="Курсы Японского языка" />
+    <link href="~/css/ResetStyle.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/Course Page Style/OpenCourseStyle.css" rel="stylesheet" type="text/css" />
+    <title> Курсы Японского языка </title>
+</head>
+<body>
+    <div class="backButton">
+        <a href="#" class="BB" tabindex="0">UP</a>
+    </div>
+    <div class="wrap">
+
+        <div class="row row-1">
+            <div class="col col-1">
+                @if (ViewBag.User != null)
+                {<a href="../Home/HomeViewWithUser?userId=@ViewBag.User.Id">Главная</a>}
+                @if (ViewBag.User == null)
+                {<a href="../Home/Index">Главная</a>}
+            </div>
+            <div class="col col-2">
+                @if (ViewBag.User != null)
+                {<a href="../News/NewsView?userId=@ViewBag.User.Id">Новости</a>}
+                @if (ViewBag.User == null)
+                {<a href="../News/NewsView">Новости</a>}
+            </div>
+            <div class="col col-3">
+                @if (ViewBag.User != null)
+                {<a href="../Course/CoursesView?userId=@ViewBag.User.Id">Курсы</a>}  @if (ViewBag.User == null)
+                {<a href="../Course/CoursesView">Курсы</a>}
+            </div>
+            <div class="col col-4">
+                @if (ViewBag.User != null)
+                {
+                    <a href="../Feedback/FeedbackView?userId=@ViewBag.User.Id">Обратная связь</a>
+                }
+                else
+                {
+                    <a href="../Feedback/FeedbackView">Обратная связь</a>
+                }
+            </div>
+            <div class="col col-5">
+                @if (ViewBag.User != null)
+                {<a href="../Article/ArticlesView?userId=@ViewBag.User.Id">Статьи</a>}
+                @if (ViewBag.User == null)
+                {<a href="../Article/ArticlesView">Статьи</a>}
+            </div>
+            @if (ViewBag.User != null)
+            {
+                <div class="col col-6"><a href="../Home/HomeViewWithUser?userId=@ViewBag.User.Id">Добро пожаловать: @ViewBag.User.Login</a></div>
+            }
+        </div>
+
+        <div class="row row-2">
+            <div class="col col-1"><img src="~/images/Course Page Images/1cbf731a8245ee1a5deb12c196005aa7.jpg" alt=""></div>
+            <div class="col col-2">
+                <p class="title">Ура, курсы!</p>
+                <p class="description">путешествие только начинается</p>
+            </div>
+        </div>
+
+        <div class="row row-3">
+            <p class="title">@ViewBag.Course.Title</p>
+            <p class="hour">Часов: @ViewBag.Course.HoursCount </p>
+
+        </div>
+
+        <div class="row row-4">
+            @for (var i = 0; i < ViewBag.Course.Description.Split('•').Length; i++)
+            {
+                if (i == 0)
+                {
+                    <p>@ViewBag.Course.Description.Split('•')[i]</p>
+                }
+                else
+                {
+                    <p>
+                        @string.Concat("• ", ViewBag.Course.Description.Split('•')[i])
+                    </p>
+                        }
+                        }
+                </div>
+
+        <div class="row row-5">
+            <div class="block block-a">
+                @if (ViewBag.User == null)
+                {
+                    <a href="../Home/Index">Создать аккаунт</a>
+                    <p> / </p>
+                    <a href="../Home/AuthorizationView">Авторизироваться</a>
+                }
+                @if (ViewBag.User != null)
+                {
+                    if (ViewBag.Flag)
+                    {
+                        <h1>Куплен</h1>
+                    }
+                    else
+                    {
+                            <a href="../Course/BuyCourse?_userId=@ViewBag.User.Id&_id=@ViewBag.Course.Id"> <h1>Купить</h1></a>
+                    }
+                }
+
+            </div>
+            <p>@ViewBag.Course.Price $</p>
+        </div>
+
+        <div class="row row-6">
+            @if (ViewBag.Message != null)
+            {
+                <p class="message">@ViewBag.Message</p>
+            }
+
+            <p class="title">Список уроков</p>
+            <p class="description">данного курса</p>
+        </div>
+
+        <div class="row row-7">
+            @for (var i = 0; i < ViewBag.Lessons.Count; i++)
+            {
+                @if (ViewBag.User != null && ViewBag.Flag)
+                {
+                    <a class="col" href="../Lesson/LessonView?lessonId=@ViewBag.Lessons[i].Id&userId=@ViewBag.User.Id">
+                        <div class="block block-p">
+                            <p>@(i+1)</p>
+                        </div>
+                        <p>@ViewBag.Lessons[i].Title</p>
+                    </a>
+                }
+                else
+                {
+                    <div class="col">
+                        <div class="block block-p">
+                            <p>@(i+1)</p>
+                        </div>
+                        <p>@ViewBag.Lessons[i].Title</p>
+                    </div>
+                }
+            }
+        </div>
+
+        <div class="row row-8">
+            <div class="col col-1">
+                <img src="~/images/Course Page Images/Home Page Image.jpg" alt="error">
+            </div>
+            <div class="col col-2">
+                @if (ViewBag.User != null)
+                {
+                    <a href="../Feedback/FeedbackView?userId=@ViewBag.User.Id">Обратная связь</a>
+                }
+                else
+                {
+                    <a href="../Feedback/FeedbackView">Обратная связь</a>
+                }
+                <p>E-mail: vinnik_21@bk.ru</p>
+                <p class="p-1">Все права защищены (с)</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

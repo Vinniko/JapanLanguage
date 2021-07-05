@@ -25,7 +25,6 @@ C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\Microsoft.
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\MySql.Data.dll
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
@@ -38,7 +37,6 @@ C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\System.Com
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
-C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
@@ -93,9 +91,6 @@ C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\ru\Microso
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\obj\Debug\netcoreapp3.1\staticwebassets\TestWeb.StaticWebAssets.Manifest.cache
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\obj\Debug\netcoreapp3.1\staticwebassets\TestWeb.StaticWebAssets.xml
@@ -135,3 +130,5 @@ C:\Users\Vinniko\source\repos\TestWeb\TestWeb\obj\Debug\netcoreapp3.1\Razor\View
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\MailKit.dll
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\bin\Debug\netcoreapp3.1\MimeKit.dll
 C:\Users\Vinniko\source\repos\TestWeb\TestWeb\obj\Debug\netcoreapp3.1\TestWeb.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Vinniko\source\repos\TestWeb\TestWeb\obj\Debug\netcoreapp3.1\TestWeb.csproj.CoreCompileInputs.cache
+C:\Users\Vinniko\source\repos\TestWeb\TestWeb\obj\Debug\netcoreapp3.1\TestWeb.genruntimeconfig.cache

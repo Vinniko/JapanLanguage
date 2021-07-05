@@ -11,7 +11,7 @@
 Создать схему данных в новой базе данных: 
 >mysql -u [user] -p [database_name] < ../JapanLanguageWebSiteDatabaseDump.sql
 
-Настроить подключение к базе данных. Для этого необходимо перейти в папку ./DesktopBD/Service/ 
+Настроить подключение к базе данных. Для этого необходимо перейти в папку ./TestWeb/Services/ 
 и в файле DataBaseService в переменной DataBaseAdress указать данные для подключения к базе данных.
 
 Пример:
